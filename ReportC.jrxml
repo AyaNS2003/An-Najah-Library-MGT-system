@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportC" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="904cfc00-de55-469e-98e2-a1076df1501d">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[cHJvai5ib29rIEFTICwxNjcsMTUsNmUzZTY4ZWQtZTI1Ni00MzllLWEyMzUtODZkM2I5MzdiYTNh
+O3Byb2oucmV0dXJucyBBUyAsMTUsNzYsN2YwYTQ2NmItNjY5NC00MjZmLWI5NTEtNWQ2YThiMWRm
+MzE1Ow==]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+	<subDataset name="Dataset1" uuid="32349a7f-ae21-4a14-ab8d-75ba867f9622">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+		<queryString language="SQL">
+			<![CDATA[select b.category,count(r.stu_id)
+from proj.book as b, proj.returns as r
+where r.book_id = b.book_id
+group by b.category]]>
+		</queryString>
+		<field name="category" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="category"/>
+			<property name="com.jaspersoft.studio.field.label" value="category"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="book"/>
+		</field>
+		<field name="count" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.name" value="count"/>
+			<property name="com.jaspersoft.studio.field.label" value="count"/>
+		</field>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[SELECT count(proj.returns.stu_id)  AS count_of_borrowings,
+	proj.book.book_id,
+	proj.book.isbn,
+	proj.book.title,
+	proj.book.category
+FROM proj.returns
+	INNER JOIN proj.book ON 
+	 proj.book.book_id = proj.returns.book_id 
+GROUP BY proj.book.book_id]]>
+	</queryString>
+	<field name="count_of_borrowings" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="count_of_borrowings"/>
+		<property name="com.jaspersoft.studio.field.label" value="count_of_borrowings"/>
+	</field>
+	<field name="book_id" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="book_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="book_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="book"/>
+	</field>
+	<field name="isbn" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="isbn"/>
+		<property name="com.jaspersoft.studio.field.label" value="isbn"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="book"/>
+	</field>
+	<field name="title" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="title"/>
+		<property name="com.jaspersoft.studio.field.label" value="title"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="book"/>
+	</field>
+	<field name="category" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="category"/>
+		<property name="com.jaspersoft.studio.field.label" value="category"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="book"/>
+	</field>
+	<group name="book_id">
+		<groupExpression><![CDATA[$F{book_id}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="4" width="91" height="96" uuid="f225c08e-3fd3-4b44-92b8-9d0240428c15"/>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="100" y="0" width="700" height="46" forecolor="#3168A8" uuid="5e67585f-0b75-4912-aca2-8595256e985d"/>
+				<textElement>
+					<font fontName="SansSerif" size="29" isBold="true"/>
+				</textElement>
+				<text><![CDATA[An-Najah National Universty Library]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="46" width="169" height="30" forecolor="#3168A8" uuid="8ed41b7f-1670-4f63-b238-c2d2f31a033a"/>
+				<textElement>
+					<font fontName="SansSerif" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nablus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="101" y="66" width="309" height="30" forecolor="#3168A8" uuid="f66b8b8a-9617-458c-9c0d-3190ff7bc928"/>
+				<textElement>
+					<font fontName="SansSerif" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-mail: educ@najah.edu]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="10" width="790" height="40" forecolor="#FFFFFF" backcolor="#3168A8" uuid="292a25d0-518d-42bc-9f82-0ecda41f4362"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[This report shows the most preffered fields, so that helps to know what kinds of books should be available in the Library]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="540" y="9" width="250" height="30" forecolor="#3168A8" uuid="f9b56a22-f549-4275-b46a-e5a922d39c3d"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Number of borrowings]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="9" width="91" height="30" forecolor="#3168A8" uuid="bd310d82-b108-485a-9085-242775c84bee"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Category]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="9" width="91" height="30" forecolor="#3168A8" uuid="7f389732-0546-4d45-bbed-50568f7ab847"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="10" width="91" height="30" forecolor="#3168A8" uuid="f0f75b22-2694-4771-a8c5-b8dcc9aaaf96"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ISBN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="10" width="91" height="30" forecolor="#3168A8" uuid="7a37d59f-1669-467c-bf04-d54c609de261"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Book ID]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="67" splitType="Stretch">
+			<textField>
+				<reportElement x="610" y="10" width="70" height="40" uuid="ae5b06da-b941-41e0-8543-c9ae1565f141"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{count_of_borrowings}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="10" width="170" height="40" uuid="9acff752-61a0-42dd-b8e1-1cedc6b20f82"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{category}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="250" y="10" width="130" height="40" uuid="2bfd27f6-1228-4c36-a68e-e6b3bccfeeb3"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="91" y="10" width="159" height="40" uuid="c4e8b064-001f-4ff2-9536-30e31cad5809"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{isbn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="10" width="50" height="40" uuid="007edf90-6258-4415-89ed-ab3b6450c455"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{book_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="760" y="10" width="40" height="30" uuid="8ebcfd65-eca9-409e-9751-2ce6a9130d02"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="209" splitType="Stretch">
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="260" y="0" width="241" height="170" uuid="ef8fbbc5-7ce5-4f54-8174-48665dd19863"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset>
+						<datasetRun subDataset="Dataset1" uuid="a8384fc1-3e76-4a3c-905d-9d5ca741f784"/>
+					</dataset>
+					<keyExpression><![CDATA[$F{category}]]></keyExpression>
+					<valueExpression><![CDATA[$F{count}]]></valueExpression>
+					<labelExpression><![CDATA[$F{count}+""]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+			<staticText>
+				<reportElement x="230" y="170" width="271" height="30" uuid="0969da72-8194-4a90-b709-373c5c8e0b1d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[The percentage of each category borrowings]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportD" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="066f812f-c8f6-4895-a730-69b240c14927">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+	<subDataset name="Dataset1" uuid="cc10ab7e-04ed-4936-bd89-6730b0dd1f01">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+		<queryString language="SQL">
+			<![CDATA[select s.academic_level,count (r.book_id) from proj.student as s, proj.returns as r
+where s.stu_id = r.stu_id
+group by s.academic_level]]>
+		</queryString>
+		<field name="academic_level" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="academic_level"/>
+			<property name="com.jaspersoft.studio.field.label" value="academic_level"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+		</field>
+		<field name="count" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.name" value="count"/>
+			<property name="com.jaspersoft.studio.field.label" value="count"/>
+		</field>
+		<group name="academic_level">
+			<groupExpression><![CDATA[$F{academic_level}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[select s.stu_id,s.stu_fname,s.stu_minit,s.stu_lname, s.academic_level,count (r.book_id) from proj.student as s, proj.returns as r
+where s.stu_id = r.stu_id
+group by s.stu_id]]>
+	</queryString>
+	<field name="stu_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="stu_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="stu_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+	</field>
+	<field name="stu_fname" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="stu_fname"/>
+		<property name="com.jaspersoft.studio.field.label" value="stu_fname"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+	</field>
+	<field name="stu_minit" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="stu_minit"/>
+		<property name="com.jaspersoft.studio.field.label" value="stu_minit"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+	</field>
+	<field name="stu_lname" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="stu_lname"/>
+		<property name="com.jaspersoft.studio.field.label" value="stu_lname"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+	</field>
+	<field name="academic_level" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="academic_level"/>
+		<property name="com.jaspersoft.studio.field.label" value="academic_level"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+	</field>
+	<field name="count" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="count"/>
+		<property name="com.jaspersoft.studio.field.label" value="count"/>
+	</field>
+	<group name="stu_id">
+		<groupExpression><![CDATA[$F{stu_id}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="73" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="70" height="70" uuid="4ea97421-d9fb-498a-b5b4-926039e1b9f9"/>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="80" y="0" width="416" height="30" forecolor="#3168A8" uuid="d0922fb3-a6c6-4032-952d-adfa1a61f0ea"/>
+				<textElement>
+					<font fontName="SansSerif" size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[An-Najah National Universty Library]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="30" width="69" height="30" forecolor="#3168A8" uuid="6e375921-73b1-422d-b5de-397e749f7099"/>
+				<textElement>
+					<font fontName="SansSerif" size="15" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nablus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="50" width="209" height="20" forecolor="#3168A8" uuid="545510ce-4e91-4081-a6a1-bc7326939c35"/>
+				<textElement>
+					<font fontName="SansSerif" size="15" isBold="false"/>
+				</textElement>
+				<text><![CDATA[E-mail: educ@najah.edu]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="10" width="50" height="41" forecolor="#3168A8" uuid="ea0bebd0-77f7-425c-8467-104af6970687"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="10" width="107" height="41" forecolor="#3168A8" uuid="7d70e9b2-db87-4b12-903b-320f600bdd3f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Academic Level]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="10" width="98" height="41" forecolor="#3168A8" uuid="3afa8f6c-da43-4027-9dce-351d58cdd723"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Last name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="10" width="81" height="41" forecolor="#3168A8" uuid="fbd9123b-d686-4214-ade0-d379ad6a716a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mid_initial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="10" width="91" height="41" forecolor="#3168A8" uuid="0806d87b-b63a-4ce0-94ab-0c60702f2458"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[First name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="0" width="86" height="60" forecolor="#3168A8" uuid="8188463b-74fc-41cf-b66a-6962c17243b4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="2.0"/>
+				</textElement>
+				<text><![CDATA[Number of Loaned books]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="70" height="31" uuid="ef371685-9f8f-4612-9a88-74634459b8aa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stu_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="11" width="91" height="30" uuid="9d5654e3-85d3-4bef-aee5-737ecb709851"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stu_fname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="161" y="10" width="79" height="31" uuid="75194482-984c-4c51-8967-cb8bb2ad7542"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stu_minit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="10" width="101" height="31" uuid="0865337e-de0e-467e-ad4e-21f70620b93d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stu_lname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="10" width="101" height="31" uuid="d41820ea-0dfb-4f01-b52c-5a466a9a5da4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{academic_level}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="11" width="100" height="30" uuid="d82dc3ba-4276-471c-8a79-3cf74725b82c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{count}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="486" y="30" width="70" height="20" forecolor="#3168A8" uuid="bdc45cf3-72bd-41e6-9972-258382c7c06b"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="27" width="100" height="21" uuid="89071ef0-c001-485a-9ed8-25956f705046"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="220" splitType="Stretch">
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="40" y="20" width="290" height="167" uuid="84b4adcd-3054-42d6-97d0-7a70f7fa0633"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset>
+						<datasetRun subDataset="Dataset1" uuid="b66cc859-f1ad-4c41-97b7-6517a7106431"/>
+					</dataset>
+					<keyExpression><![CDATA[$F{academic_level}]]></keyExpression>
+					<valueExpression><![CDATA[$F{count}]]></valueExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+			<staticText>
+				<reportElement x="50" y="187" width="280" height="33" uuid="7c870b74-4d15-4ec1-bdcb-4680a949832e"/>
+				<textElement>
+					<font fontName="SansSerif" size="13"/>
+				</textElement>
+				<text><![CDATA[The percentage of borrowings according to each academic level]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
